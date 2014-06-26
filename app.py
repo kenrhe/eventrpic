@@ -43,11 +43,7 @@ def create():
 		uid_scramble+=1
 		uid = uid + uid_scramble
 
-
-	if events.find({"uid" : uid}).count() > 0:
-		return render_template('create.html', error="That event already exists! Try again.")
-
-	event = {"name" : name, "date" : date, "location" : location}
+	event = {"name" : name, "date" : date, "location" : location, "uid" : uid}
 	event_id = events.insert(event)
 
 	return render_template('create.html', error="Your event has been successfully created! The unique ID for this event is: " + uid)
