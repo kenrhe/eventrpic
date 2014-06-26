@@ -36,14 +36,21 @@ def create():
 	name=request.form['event-name']
 	date=request.form['date']
 	location=request.form['location']
+	uid = name.replace(" ", "").lower()
 
-	if events.find({"event-name" : name}).count() > 0:
+	uid_scramble = 0
+	while (events.find({"uid" : uid}).count() > 0):
+		uid_scramble+=1
+		uid = uid + uid_scramble
+
+
+	if events.find({"uid" : uid}).count() > 0:
 		return render_template('create.html', error="That event already exists! Try again.")
 
 	event = {"name" : name, "date" : date, "location" : location}
 	event_id = events.insert(event)
 
-	return render_template('create.html', error="Your event has been successfully created! The unique ID for this event is: " + name)
+	return render_template('create.html', error="Your event has been successfully created! The unique ID for this event is: " + uid)
 
 
 @app.route('/about')
