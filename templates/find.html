@@ -76,16 +76,22 @@
 		</style>
 </head>
 
-<body onload="aggregate()">
+<body>
 		<a class="button" href="/">Back</a>	
 
-		<div class="title">
-			<h1>
-				Find an Event			
-			</h1>
-		</div>
-
-		<ol id="events-list">
-		</ol>
+        <table>
+          <tr>
+            <td> <strong>Event Name</strong> </td>
+            <td> <strong>Date</strong> </td>
+            <td> <strong>Location</strong> </td>
+          </tr>
+          {% for event in events %}
+          <tr>
+            <td>{{ event['name'] }}</td>
+            <td>{{ event['date'] }}</td>
+            <td>{{ event['location'] }}</td>
+          </tr>
+          {% endfor %}
+        </table>
 </body>
 </html>

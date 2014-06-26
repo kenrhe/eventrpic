@@ -26,7 +26,7 @@ def eventrpic():
 def find():
 	#returning redirect will cause it do go to the specificed URL
 	if request.method == 'GET':
-		return render_template('find.html')
+		return render_template('find.html', events=events.find())
 	return redirect('/')
 
 @app.route('/create', methods=['GET', 'POST'])
