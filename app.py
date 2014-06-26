@@ -43,7 +43,7 @@ def create():
 	event = {"name" : name, "date" : date, "location" : location}
 	event_id = events.insert(event)
 
-	return render_template('create.html', error="Your event has been successfully created!")
+	return render_template('create.html', error="Your event has been successfully created! The unique ID for this event is: " + name)
 
 
 @app.route('/about')
