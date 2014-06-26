@@ -79,20 +79,22 @@
 <body>
 	<a class="button" href="/">Back</a>	
 	<br />
-	<table id="events-list">
-		<tr>
-			<td> <strong>Event Name</strong> </td>
-			<td> <strong>Date</strong> </td>
-			<td> <strong>Location</strong> </td>
-		</tr>
-		{% for event in events %}
-		<tr>
-			<td>{{ event['name'] }}</td>
-			<td>{{ event['date'] }}</td>
-			<td>{{ event['location'] }}</td>
-		</tr>
-		{% endfor %}
-	</table>
+	<center>
+		<table id="events-list">
+			<tr>
+				<td> <strong>Event Name</strong> </td>
+				<td> <strong>Date</strong> </td>
+				<td> <strong>Location</strong> </td>
+			</tr>
+			{% for event in events %}
+			<tr>
+				<td>{{ event['name'] }}</td>
+				<td>{{ event['date'] }}</td>
+				<td>{{ event['location'] }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</center>
 
 </body>
 </html>
