@@ -9,6 +9,12 @@ from pymongo import MongoClient
 #making a new Flask app
 app = Flask(__name__)
 
+MONGO_URL = os.environ.get('MONGOHQ_URL')
+client = MongoClient(MONGO_URL)
+db = client.app26787337
+
+events = db.events
+
 #@app.route binds a function to specific url
 @app.route('/')
 #this function tells the app what to do when it loads the main page
@@ -27,7 +33,9 @@ def find():
 def create():
 	if request.method == 'GET':
 		return render_template('create.html')
-	return redirect('/')
+	name=request.form['event-name']
+	date=request.form['date']
+	location=request.form['location']
 
 
 @app.route('/about')
