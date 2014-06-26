@@ -31,6 +31,7 @@
 				background-color: hsl(200, 30%, 20%);
 				color: hsl(200, 5%, 100%);
 				font-weight: lighter;
+				font-size: 80px;
 			}
 
 			.title h1{
@@ -76,10 +77,8 @@
 </head>
 
 <body>
-		<a class="button" href="/">Back</a>	
-
-        <table>
-          <tr>
+	<table id="events-list">
+	          <tr>
             <td> <strong>Event Name</strong> </td>
             <td> <strong>Date</strong> </td>
             <td> <strong>Location</strong> </td>
@@ -92,5 +91,6 @@
           </tr>
           {% endfor %}
         </table>
+
 </body>
 </html>
