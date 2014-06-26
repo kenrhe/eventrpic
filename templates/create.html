@@ -1,93 +1,93 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Create Event</title>
-		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<head>
+	<title>Create Event</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
 
-		<!--<link rel="stylesheet" type="text/css" href="stylesheet.css">-->
+	<!--<link rel="stylesheet" type="text/css" href="stylesheet.css">-->
 
-		<style ref="stylesheet">
+	<style ref="stylesheet">
 
-			body {
-				text-align: center;
-				margin: 0px;
-				-webkit-font-smoothing: antialiased;
-				font-family:"lucida grande", tahoma, verdana, arial, sans-serif;
-				background-color: hsl(200, 30%, 20%);
-				color: hsl(200, 5%, 100%);
-				font-weight: lighter;
-				font-size: 80px;
-			}
+	body {
+		text-align: center;
+		margin: 0px;
+		-webkit-font-smoothing: antialiased;
+		font-family:"lucida grande", tahoma, verdana, arial, sans-serif;
+		background-color: hsl(200, 30%, 20%);
+		color: hsl(200, 5%, 100%);
+		font-weight: lighter;
+		font-size: 80px;
+	}
 
-			.title h1{
-				font-size: 80px;
-				margin-top: 0;
-				margin-bottom: 50px;
-				padding: 0;
-			}
+	.title h1{
+		font-size: 80px;
+		margin-top: 0;
+		margin-bottom: 50px;
+		padding: 0;
+	}
 
-			.inputs {
-				font-size: 30px;
-				text-align: center;
-			}
+	.inputs {
+		font-size: 30px;
+		text-align: center;
+	}
 
-			input[type=text] {
-				text-align: 10px;
-				border-radius: 5px;
-			    border: 5px solid white; 
-			    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-			    margin: 0 0 10px 10px;
-			}
+	input[type=text] {
+		text-align: 10px;
+		border-radius: 5px;
+		border: 5px solid white; 
+		font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+		margin: 0 0 10px 10px;
+	}
 
-			.button {
-				position:absolute;
-				left: 10px;
-				top: 20px;
-				font-size: 20px;
-				padding: 10px;
-				width: 60px;
-				height: 30px;
-				text-align: center;
-				text-decoration: none;
-				-webkit-font-smoothing: antialiased;
-				color: #FFF;
-				background: hsl(200, 75%, 50%);
-				white-space: nowrap;
-				-webkit-border-radius: 5px;
-				-moz-border-radius: 5px;
-				-webkit-transition: all 0.2s ease-in-out;
-				-ms-transition: all 0.2s ease-in-out;
-				-moz-transition: all 0.2s ease-in-out;
-				-o-transition: all 0.2s ease-in-out;
-				transition: all 0.2s ease-in-out;
-			}
+	.button {
+		position:absolute;
+		left: 10px;
+		top: 20px;
+		font-size: 20px;
+		padding: 10px;
+		width: 60px;
+		height: 30px;
+		text-align: center;
+		text-decoration: none;
+		-webkit-font-smoothing: antialiased;
+		color: #FFF;
+		background: hsl(200, 75%, 50%);
+		white-space: nowrap;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-transition: all 0.2s ease-in-out;
+		-ms-transition: all 0.2s ease-in-out;
+		-moz-transition: all 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
+	}
 
-			.button:hover {
-				background: hsl(200, 75%, 35%);
-			}
+	.button:hover {
+		background: hsl(200, 75%, 35%);
+	}
 
-		</style>
-	</head>
+	</style>
+</head>
 
-	<body>
-		{{ error }}
-		<a class="button" href="/">Back</a>
+<body>
+	{{ error }}
+	<a class="button" href="/">Back</a>
 
-		<div class="title">
-			<h1>
-				Create an Event
-			</h1>
-		</div>
-		<form class="inputs" name="input" action="/create" method="POST">
-			<span>Event name:</span>
-			<input name="event-name" type="text"><br \>
-			<span>Date:</span>
-			<input name="date" type="text"><br \>
-			<span>Location:</span>
-			<input name="location" type="text"><br \>
-			<span>Upload Cover Picture</span><br \>
-			<input type="file" name="picture" class="picture" accept="image/*"><br \>
-			<input type="submit">
-		</form>
-	</body>
+	<div class="title">
+		<h1>
+			Create an Event
+		</h1>
+	</div>
+	<form class="inputs" name="input" action="/create" method="POST">
+		<span>Event name:</span>
+		<input name="event-name" type="text"><br \>
+		<span>Date:</span>
+		<input name="date" type="text"><br \>
+		<span>Location:</span>
+		<input name="location" type="text"><br \>
+		<span>Upload Cover Picture</span><br \>
+		<input type="file" name="picture" class="picture" accept="image/*"><br \>
+		<input type="submit">
+	</form>
+</body>
 </html>

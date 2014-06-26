@@ -2,97 +2,97 @@
 <html>
 <head>
 	<title>Find Event</title>
-		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
 
-		<!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
 
-		<script type="text/javascript">
+	<script type="text/javascript">
 
-		function aggregate() {
-			var listdata = ["HackRU", "HackBCA"];
+	function aggregate() {
+		var listdata = ["HackRU", "HackBCA"];
 
-			var numberList = document.getElementById("events-list");
-			for (var i = 0; i < listdata.length; i++) {
-				var newli = document.createElement("li");
-				var data = document.createTextNode(listdata[i]);
-				newli.appendChild(data);
-				numberList.appendChild(newli);
-			}			
-		}
-		</script>
+		var numberList = document.getElementById("events-list");
+		for (var i = 0; i < listdata.length; i++) {
+			var newli = document.createElement("li");
+			var data = document.createTextNode(listdata[i]);
+			newli.appendChild(data);
+			numberList.appendChild(newli);
+		}			
+	}
+	</script>
 
-		<style ref="stylesheet">
+	<style ref="stylesheet">
 
-			body {
-				text-align: center;
-				margin: 0px;
-				-webkit-font-smoothing: antialiased;
-				font-family:"lucida grande", tahoma, verdana, arial, sans-serif;
-				background-color: hsl(200, 30%, 20%);
-				color: hsl(200, 5%, 100%);
-				font-weight: lighter;
-				font-size: 80px;
-			}
+	body {
+		text-align: center;
+		margin: 0px;
+		-webkit-font-smoothing: antialiased;
+		font-family:"lucida grande", tahoma, verdana, arial, sans-serif;
+		background-color: hsl(200, 30%, 20%);
+		color: hsl(200, 5%, 100%);
+		font-weight: lighter;
+		font-size: 80px;
+	}
 
-			.title h1{
-				font-size: 80px;
-				margin-top: 0;
-				margin-bottom: 50px;
-				padding: 0;
-			}
+	.title h1{
+		font-size: 80px;
+		margin-top: 0;
+		margin-bottom: 50px;
+		padding: 0;
+	}
 
-			.button {
-				position:absolute;
-				left: 10px;
-				top: 20px;
-				font-size: 20px;
-				padding: 10px;
-				width: 60px;
-				height: 30px;
-				text-align: center;
-				text-decoration: none;
-				-webkit-font-smoothing: antialiased;
-				color: #FFF;
-				background: hsl(200, 75%, 50%);
-				white-space: nowrap;
-				-webkit-border-radius: 5px;
-				-moz-border-radius: 5px;
-				-webkit-transition: all 0.2s ease-in-out;
-				-ms-transition: all 0.2s ease-in-out;
-				-moz-transition: all 0.2s ease-in-out;
-				-o-transition: all 0.2s ease-in-out;
-				transition: all 0.2s ease-in-out;
-			}
+	.button {
+		position:absolute;
+		left: 10px;
+		top: 20px;
+		font-size: 20px;
+		padding: 10px;
+		width: 60px;
+		height: 30px;
+		text-align: center;
+		text-decoration: none;
+		-webkit-font-smoothing: antialiased;
+		color: #FFF;
+		background: hsl(200, 75%, 50%);
+		white-space: nowrap;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-transition: all 0.2s ease-in-out;
+		-ms-transition: all 0.2s ease-in-out;
+		-moz-transition: all 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
+	}
 
-			.button:hover {
-				background: hsl(200, 75%, 35%);
-			}
+	.button:hover {
+		background: hsl(200, 75%, 35%);
+	}
 
-			#events-list {
-				font-size: 30px;
-				list-style-position: inside;
-			}
+	#events-list {
+		font-size: 30px;
+		list-style-position: inside;
+	}
 
-		</style>
+	</style>
 </head>
 
 <body>
-		<a class="button" href="/">Back</a>	
-
+	<a class="button" href="/">Back</a>	
+	<br />
 	<table id="events-list">
-	          <tr>
-            <td> <strong>Event Name</strong> </td>
-            <td> <strong>Date</strong> </td>
-            <td> <strong>Location</strong> </td>
-          </tr>
-          {% for event in events %}
-          <tr>
-            <td>{{ event['name'] }}</td>
-            <td>{{ event['date'] }}</td>
-            <td>{{ event['location'] }}</td>
-          </tr>
-          {% endfor %}
-        </table>
+		<tr>
+			<td> <strong>Event Name</strong> </td>
+			<td> <strong>Date</strong> </td>
+			<td> <strong>Location</strong> </td>
+		</tr>
+		{% for event in events %}
+		<tr>
+			<td>{{ event['name'] }}</td>
+			<td>{{ event['date'] }}</td>
+			<td>{{ event['location'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
 
 </body>
 </html>
