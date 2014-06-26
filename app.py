@@ -37,6 +37,14 @@ def create():
 	date=request.form['date']
 	location=request.form['location']
 
+	if events.find({"event-name" : name}).count() > 0:
+		return render_template('create.html', error="That event already exists! Try again.")
+
+	event = {"name" : name, "date" : date, "location" : location}
+	event_id = events.insert(event)
+
+	return render_template('create.html', error="Your event has been successfully created!")
+
 
 @app.route('/about')
 def about():
