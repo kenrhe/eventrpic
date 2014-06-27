@@ -41,7 +41,7 @@ def create():
 	uid_scramble = 0
 	while (events.find({"uid" : uid}).count() > 0):
 		uid_scramble+=1
-		uid = uid + uid_scramble
+		uid = uid + str(uid_scramble)
 
 	event = {"name" : name, "date" : date, "location" : location, "uid" : uid}
 	event_id = events.insert(event)
