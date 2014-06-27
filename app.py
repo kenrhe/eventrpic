@@ -29,6 +29,10 @@ def find():
 		return render_template('find.html', events=events.find())
 	return redirect('/')
 
+@app.route('/loaderio-129dddcf59812b6327f243ede3b88349.txt', methods=['GET'])
+def loadtest():
+	return render_template('loaderio-129dddcf59812b6327f243ede3b88349.txt')
+
 @app.route('/create', methods=['GET', 'POST'])
 def create():
 	if request.method == 'GET':
