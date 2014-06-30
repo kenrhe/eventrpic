@@ -66,7 +66,7 @@ def create():
     	headers = headers,
     	data = {
     	    'key': api_key, 
-    	    'image': b64encode(picture.read()),
+    	    'image': b64encode(picture),
     	    'type': 'base64',
     	    'name': '1.jpg',
     	    'title': 'Picture no. 1'
