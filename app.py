@@ -57,24 +57,24 @@ def create():
 
 	headers = {"Authorization": "Client-ID 87410c282089448"}
 
-	api_key = '29e0a36f31670f8c26e1972b1507691f440039bf'
+	#api_key = '29e0a36f31670f8c26e1972b1507691f440039bf'
 
-	url = "https://api.imgur.com/3/upload.json"
+	api_key = '87410c282089448'
+	url = "https://api.imgur.com/2/upload.json"
 
-	j1 = requests.post(
-    	url, 
-    	headers = headers,
-    	data = {
-    	    'key': api_key, 
-    	    'image': b64encode(picture),
-    	    'type': 'base64',
-    	    'name': '1.jpg',
-    	    'title': 'Picture no. 1'
-    	}
-	)
+	f = open(picture, 'rb')
+	binary_data = f.read()
+	b64image = b64encode(binary_data)
+	
+	payload = {'key' : api_key, 'image': b64image, 'title' : 'apitest'}
 
-	data = json.loads(j1.text)['data']
-	print data['link']
+	req = requests.post(url, data=payload)
+
+	j = json.loads(req.text)
+
+	print j
+
+	print j['upload'], j['links']
 
 	return render_template('create.html', error="Your event has been successfully created! The unique ID for this event is: " + uid)
 
