@@ -6,6 +6,12 @@ import datetime
 import pymongo
 from pymongo import MongoClient
 
+import base64
+import json
+import requests
+
+from base64 import b64encode
+
 #making a new Flask app
 app = Flask(__name__)
 
@@ -29,10 +35,6 @@ def find():
 		return render_template('find.html', events=events.find())
 	return redirect('/')
 
-@app.route('/loaderio-129dddcf59812b6327f243ede3b88349.txt', methods=['GET'])
-def loadtest():
-	return render_template('loaderio-129dddcf59812b6327f243ede3b88349.txt')
-
 @app.route('/create', methods=['GET', 'POST'])
 def create():
 	if request.method == 'GET':
@@ -40,6 +42,7 @@ def create():
 	name=request.form['event-name']
 	date=request.form['date']
 	location=request.form['location']
+	picture=request.form['picture']
 	uid = name.replace(" ", "").lower()
 
 	uid_scramble = 0
@@ -49,6 +52,27 @@ def create():
 
 	event = {"name" : name, "date" : date, "location" : location, "uid" : uid}
 	event_id = events.insert(event)
+
+	client_id = '87410c282089448'
+
+	headers = {"Authorization": "Client-ID 87410c282089448"}
+
+	api_key = '29e0a36f31670f8c26e1972b1507691f440039bf'
+
+	url = "https://api.imgur.com/3/upload.json"
+
+	j1 = requests.post(
+    	url, 
+    	headers = headers,
+    	data = {
+    	    'key': api_key, 
+    	    'image': b64encode(picture.read()),
+    	    'type': 'base64',
+    	    'name': '1.jpg',
+    	    'title': 'Picture no. 1'
+    	}
+	)
+
 
 	return render_template('create.html', error="Your event has been successfully created! The unique ID for this event is: " + uid)
 
