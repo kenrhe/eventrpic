@@ -7,6 +7,7 @@ import pymongo
 from pymongo import MongoClient
 
 import cloudinary
+import cloudinary.uploader
 
 #making a new Flask app
 app = Flask(__name__)
