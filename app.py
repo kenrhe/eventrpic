@@ -73,6 +73,8 @@ def create():
     	}
 	)
 
+	data = json.loads(j1.text)['data']
+	print data['link']
 
 	return render_template('create.html', error="Your event has been successfully created! The unique ID for this event is: " + uid)
 
