@@ -6,11 +6,7 @@ import datetime
 import pymongo
 from pymongo import MongoClient
 
-import base64
-import json
-import requests
-
-from base64 import b64encode
+import cloudinary
 
 #making a new Flask app
 app = Flask(__name__)
@@ -53,28 +49,7 @@ def create():
 	event = {"name" : name, "date" : date, "location" : location, "uid" : uid}
 	event_id = events.insert(event)
 
-	client_id = '87410c282089448'
-
-	headers = {"Authorization": "Client-ID 87410c282089448"}
-
-	#api_key = '29e0a36f31670f8c26e1972b1507691f440039bf'
-
-	api_key = '87410c282089448'
-	url = "https://api.imgur.com/2/upload.json"
-
-	f = open(picture, 'rb')
-	binary_data = f.read()
-	b64image = b64encode(binary_data)
-	
-	payload = {'key' : api_key, 'image': b64image, 'title' : 'apitest'}
-
-	req = requests.post(url, data=payload)
-
-	j = json.loads(req.text)
-
-	print j
-
-	print j['upload'], j['links']
+	cloudinary.uploader.upload(picture)
 
 	return render_template('create.html', error="Your event has been successfully created! The unique ID for this event is: " + uid)
 
