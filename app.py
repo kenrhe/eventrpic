@@ -49,7 +49,6 @@ def create():
 
 	event = {"name" : name, "date" : date, "location" : location, "uid" : uid}
 	event_id = events.insert(event)
-
 	return render_template('create.html', error="Your event has been successfully created! The unique ID for this event is: " + uid)
 
 
