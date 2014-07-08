@@ -56,6 +56,10 @@ def create():
 def about():
 	return render_template('about.html')
 
+@app.route('/test')
+def test():
+	return render_template('test.html')
+
 if __name__ == '__main__':
 	#this code starts the web app, it can be found at http://localhost:8000
 	port = int(os.environ.get('PORT', 8000))
