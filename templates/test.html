@@ -1,5 +1,119 @@
-<html> 
-<h3>Form</h3> 
-<form method="post" enctype="multipart/form-data"> <input type="hidden" name="MAX_FILE_SIZE" value="50000" /> Image (< 50kb): <input type="file" name="upload" /><br/> ClientID: <input type="text" name="clientid" /><br/> <input type="submit" value="Upload to Imgur" /> </form> </html> 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Event</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type">
 
-<?php if (empty($_POST['clientid']) || @$_FILES['upload']['error'] !== 0 || @$_FILES['upload']['size'] > 50000) { exit; } $client_id = $_POST['clientid']; $filetype = explode('/',mime_content_type($_FILES['upload']['tmp_name'])); if ($filetype[0] !== 'image') { die('Invalid image type'); } $image = file_get_contents($_FILES['upload']['tmp_name']); $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, 'https://api.imgur.com/3/image.json'); curl_setopt($ch, CURLOPT_POST, TRUE); curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); curl_setopt($ch, CURLOPT_HTTPHEADER, array( 'Authorization: Client-ID ' . $client_id )); curl_setopt($ch, CURLOPT_POSTFIELDS, array( 'image' => base64_encode($image) )); $reply = curl_exec($ch); curl_close($ch); $reply = json_decode($reply); echo "<h3>Image</h3>"; printf('<img height="180" src="%s" >', $reply->data->link); echo "<h3>API Debug</h3><pre>"; var_dump($reply);
+	<!--<link rel="stylesheet" type="text/css" href="stylesheet.css">-->
+
+	<style ref="stylesheet">
+
+	body {
+		text-align: center;
+		margin: 0px;
+		-webkit-font-smoothing: antialiased;
+		font-family:"lucida grande", tahoma, verdana, arial, sans-serif;
+		background-color: hsl(200, 30%, 20%);
+		color: hsl(200, 5%, 100%);
+		font-weight: lighter;
+		font-size: 15px;
+	}
+
+	.title h1{
+		font-size: 80px;
+		margin-top: 0;
+		margin-bottom: 50px;
+		padding: 0;
+	}
+
+	.inputs {
+		font-size: 30px;
+		text-align: center;
+	}
+
+	input[type=text] {
+		text-align: 10px;
+		border-radius: 5px;
+		border: 5px solid white; 
+		font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+		margin: 0 0 10px 10px;
+	}
+
+	.button {
+		position:absolute;
+		left: 10px;
+		top: 20px;
+		font-size: 20px;
+		padding: 10px;
+		width: 60px;
+		height: 30px;
+		text-align: center;
+		text-decoration: none;
+		-webkit-font-smoothing: antialiased;
+		color: #FFF;
+		background: hsl(200, 75%, 50%);
+		white-space: nowrap;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-transition: all 0.2s ease-in-out;
+		-ms-transition: all 0.2s ease-in-out;
+		-moz-transition: all 0.2s ease-in-out;
+		-o-transition: all 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
+	}
+
+	.button:hover {
+		background: hsl(200, 75%, 35%);
+	}
+
+	</style>
+</head>
+
+<body>
+	{{ error }}
+	<a class="button" href="/">Back</a>
+
+	<div class="title">
+		<h1>
+			Create an Event
+		</h1>
+	</div>
+	<form class="inputs" name="input" action="/create" method="POST">
+		<span>Event name:</span>
+		<input name="event-name" type="text"><br \>
+		<span>Date:</span>
+		<input name="date" type="text"><br \>
+		<span>Location:</span>
+		<input name="location" type="text"><br \>
+		<span>Upload Cover Picture</span><br \>
+		<input type="file" name="picture" accept="image/*"><br \>
+		<input type="submit">
+	</form>
+	<?php
+	$client_id = '87410c282089448';
+
+	$file = file_get_contents("test-image.png");
+
+	$url = 'https://api.imgur.com/3/image.json';
+	$headers = array("Authorization: Client-ID $client_id");
+	$pvars  = array('image' => base64_encode($file));
+
+	$curl = curl_init();
+
+	curl_setopt_array($curl, array(
+		CURLOPT_URL=> $url,
+		CURLOPT_TIMEOUT => 30,
+		CURLOPT_POST => 1,
+		CURLOPT_RETURNTRANSFER => 1,
+		CURLOPT_HTTPHEADER => $headers,
+		CURLOPT_POSTFIELDS => $pvars
+	));
+
+	$json_returned = curl_exec($curl); // blank response
+	echo "Result: " . $json_returned ;
+
+	curl_close ($curl); 
+
+?>
+</body>
+</html>
