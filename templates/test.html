@@ -15,7 +15,7 @@
                 // action is functionality we want to call and outputJSON is our data
                     $.ajax({url: 'http://www.tippedoffapp.com/testa',
                         data: {action : 'login', formData : $('#check-user').serialize()},
-                        //type: 'post',                  
+                        type: 'post',                  
                         async: 'true',
                                                 dataType: 'jsonp',
                         beforeSend: function() {
