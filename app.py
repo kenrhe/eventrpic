@@ -24,7 +24,7 @@ events = db.events
 def eventrpic(short):
 	#render_template will render the index.html found in the template folder
 	print short
-	return render_template('index.html')
+	return redirect('http://tippedoffapp.com/tip/' + short)
 
 @app.route('/find', methods=['GET', 'POST'])
 def find():
