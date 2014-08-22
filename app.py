@@ -21,8 +21,9 @@ events = db.events
 #@app.route binds a function to specific url
 @app.route('/')
 #this function tells the app what to do when it loads the main page
-def eventrpic():
+def eventrpic(id):
 	#render_template will render the index.html found in the template folder
+	print id
 	return render_template('index.html')
 
 @app.route('/find', methods=['GET', 'POST'])
