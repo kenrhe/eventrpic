@@ -17,7 +17,7 @@
                         data: {action : 'login', formData : $('#check-user').serialize()},
                         type: 'post',                  
                         async: 'true',
-                                                dataType: 'json',
+                                                dataType: 'jsonp',
                         beforeSend: function() {
                             // This callback function will trigger before data is sent
                             $.mobile.showPageLoadingMsg(true); // This will show ajax spinner
