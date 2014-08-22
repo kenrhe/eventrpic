@@ -19,12 +19,11 @@ db = client.app26787337
 events = db.events
 
 #@app.route binds a function to specific url
-@app.route('/<short>')
+@app.route('/')
 #this function tells the app what to do when it loads the main page
-def eventrpic(short):
+def eventrpic():
 	#render_template will render the index.html found in the template folder
-	print short
-	return redirect('http://tippedoffapp.com/tip/' + short)
+	return render_template('index.html')
 
 @app.route('/find', methods=['GET', 'POST'])
 def find():
