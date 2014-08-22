@@ -29,7 +29,7 @@
                         success: function (result) {
                             if(result.status) {
                                 $.mobile.changePage("#second");
-                                $('#content').html(result.message + '<br />' + result.username);     
+                                $('#content').html(result.message + '<br />' + result.username + '<br />' + result.type);     
                             } else {
                                 alert('Logon unsuccessful!');
                             }
