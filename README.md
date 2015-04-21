@@ -1,8 +1,6 @@
-flask-boilerplate
+EventrPic
 =================
 
-Ready to use and deploy to Heroku!
+Welcome to EventrPic.
 
-<h3>To run simply do <code>python app.py</code>
-</h3>
-<h3>Once the Heroku remote is setup, simply do <code> git push heroku master</code> to deploy your code</h3>
+<h3>This app allows users to submit events and have guests post pictures to them.</h3>
